@@ -50,7 +50,7 @@ app.get("/api/cloudstorage/system/:filename", checkClientToken, (req, res) => {
     Object.keys(uniqueFilenames).forEach(x => reversed[uniqueFilenames[x]] = x)
 
     if (!reversed[req.params.filename]) return res.status(404).json(
-        error.create(
+        errors.create(
             "errors.com.epicgames.cloudstorage.file_not_found", 12004, // Code
             `Sorry, we couldn't find a system file for ${req.params.filename}`, // Message
 
