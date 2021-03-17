@@ -45,7 +45,7 @@ global.launcherversion = fs.readFileSync(`${__dirname}/public/files/version`).to
 global.serverversion = "1.5"
 
 //hopefully this should fix the memory leak issue
-/*setInterval(() => {
+setInterval(() => {
     parties.forEach(party => {
         // check if the member still exists in xmpp, if not delete them and then do the check
         party.members.forEach(member => {
@@ -64,7 +64,7 @@ global.serverversion = "1.5"
             }
         }
     });
-}, 30000);*/
+}, 30000);
 
 app.listen(process.env.port || config.port || 80, () => {
     logging.fdev(`Created by Slushia and Cyuubi, Version \x1b[36m${serverversion}`)
