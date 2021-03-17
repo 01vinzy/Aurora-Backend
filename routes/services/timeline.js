@@ -35,7 +35,7 @@ app.get('/api/calendar/v1/timeline', /*checkToken,*/ async (req, res) => {
                         activeStorefronts: [],
                         eventNamedWeights: {},
                         activeEvents: [],
-                        seasonNumber: season,
+                        seasonNumber: 10,
                         seasonTemplateId: `AthenaSeason:athenaseason${season}`,
                         matchXpBonusPoints: 0,
                         eventPunchCardTemplateId: "",

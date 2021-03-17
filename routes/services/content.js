@@ -20,7 +20,7 @@ app.get("/api/pages/fortnite-game", async (req, res) => {
         _activeDate: "2017-08-30T03:20:48.050Z",
         lastModified: new Date(),
         _locale: "en-US",
-        battleroyalenews: {
+        battleroyalenewsv2: {
             news: {
                 motds: [
                     {
@@ -42,7 +42,7 @@ app.get("/api/pages/fortnite-game", async (req, res) => {
                 ]
             }
         },
-        emergencynotice: {
+        emergencynoticev2: {
             news: {
                 platform_messages: [],
                 _type: "Battle Royale News",
