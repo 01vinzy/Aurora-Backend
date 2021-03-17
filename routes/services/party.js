@@ -16,8 +16,8 @@ Date.prototype.addHours = function(h) {
 
 app.all("/api/v1/Fortnite/user/:accountId", checkToken, (req, res) => {
     if(req.method != "GET") return res.status(405).json(errors.method("party", "prod"))
-    res.json({
-        current: parties.filter(x => x.id == req.params.accountId),
+    res.json({ //x => x.members.includes
+        current: parties.filter(x => x.members.includes(req.params.accountId)),
         invites: invites.filter(x => x.id == req.params.accountId),
         pending: [],
         pings: pings.filter(x => x.id == req.params.accountId),
