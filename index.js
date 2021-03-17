@@ -51,7 +51,7 @@ setInterval(() => {
         party.members.forEach(member => {
             if (!xmppClients[member.account_id]) {
                 let index = party.members.indexOf(member);
-                if (index == 1) {
+                if (!index == 1) {
                     party.members.splice(index, 1);
                 }
             }
@@ -59,7 +59,7 @@ setInterval(() => {
 
         if (party.members.length <= 0) {
             let index = parties.indexOf(party);
-            if (index == -1) {
+            if (!index == -1) {
                 parties.splice(index, 1);
             }
         }
