@@ -48,17 +48,39 @@ app.all("/api/public/friends/:accountId", checkToken, async (req, res) => {
         "friends", "prod"
     ))
 
-    res.json(friends.accepted.map(x => {
-        return {
-            accountId: x.id,
-            groups: [],
-            mutual: 0,
-            alias: "",
-            note: "",
-            favorite: false,
-            created: x.createdAt
-        }
-    }))
+    let result = []
+
+    friends.accepted.forEach(friend => {
+        result.push({
+            accountId: friend.id,
+            status: "ACCEPTED",
+            direction: "INBOUND",
+            created: friend.createdAt,
+            favorite: false
+        })
+    })
+
+    friends.incoming.forEach(friend => {
+        result.push({
+            accountId: friend.id,
+            status: "PENDING",
+            direction: "INBOUND",
+            created: friend.createdAt,
+            favorite: false
+        })
+    })
+
+    friends.outgoing.forEach(friend => {
+        result.push({
+            accountId: friend.id,
+            status: "PENDING",
+            direction: "OUTBOUND",
+            created: friend.createdAt,
+            favorite: false
+        })
+    })
+
+    res.json(result)
 })
 
 app.all("/api/v1/:accountId/outgoing", checkToken, async (req, res) => {
