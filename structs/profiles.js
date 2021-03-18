@@ -206,8 +206,8 @@ module.exports = {
                                 }
                             },
                             use_count: 0,
-                            banner_icon_template: "OtherBanner28",
-                            banner_color_template: "defaultcolor0",
+                            banner_icon_template: athena.banner,
+                            banner_color_template: athena.bannercolor,
                             locker_name: "Aurora",
                             item_seen: false,
                             favorite: false
@@ -277,8 +277,8 @@ module.exports = {
                                 }
                             },
                             use_count: 0,
-                            banner_icon_template: "OtherBanner28",
-                            banner_color_template: "defaultcolor0",
+                            banner_icon_template: athena.banner,
+                            banner_color_template: athena.bannercolor,
                             locker_name: "Aurora",
                             item_seen: false,
                             favorite: false
@@ -301,7 +301,7 @@ module.exports = {
                             dailyQuestRerolls: 1
                         },
                         book_level: athena.level,
-                        season_num: 13,
+                        season_num: 10,
                         season_update: 0,
                         book_xp: 99999999,
                         permissions: [],
