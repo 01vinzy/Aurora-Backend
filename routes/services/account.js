@@ -141,7 +141,7 @@ app.all("/api/oauth/token", async (req, res) => {
   
 // token killing
 
-app.delete("/account/api/oauth/sessions/kill", (req, res) => {
+app.delete("/api/oauth/sessions/kill", (req, res) => {
     res.status(204).end()
 })
 
