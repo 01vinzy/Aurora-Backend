@@ -14,33 +14,12 @@ wss.on("connection", ws => {
     var client = new Client(ws) 
 
     ws.on("close", async (lol) => {
-        var friends = await Friends.findOne({id: client.id})
-
-        if (friends) {
-            friends.accepted.forEach(friend => {
-                if (xmppClients[friend.id]) {
-                    xmppClients[friend.id].client.ws.send(xmlbuilder.create({
-                        'presence': {
-                            '@xmlns': 'jabber:client',
-                            '@to': xmppClients[friend.id].client.jid,
-                            '@from': client.jid,
-                            '@type': "unavailable",
-                            'status': {
-                                "#text": {
-                                    "bHasVoiceSupport":false,
-                                    "bIsJoinable":false,
-                                    "bIsPlaying":false,
-                                    "Properties": {
-                                        "bInPrivate": true
-                                    },
-                                    "SessionId":"","Status":"Playing Battle Royale - 1 / 16"}
-                            }
-                        }
-                    }).end().replace(`<?xml version="1.0"?>`, "").trim())            
-                }
-            })
-                
-        }
+        client.ws.send(xmlbuilder.create({
+            "close": {
+                "xmlns": "urn:ietf:params:xml:ns:xmpp-framing"
+            }
+        }))
+        client.ws.close()
 
         if (client.sender) {
             clearInterval(client.sender)
