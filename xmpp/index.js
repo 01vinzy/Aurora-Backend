@@ -19,7 +19,6 @@ wss.on("connection", ws => {
                 "xmlns": "urn:ietf:params:xml:ns:xmpp-framing"
             }
         }))
-        client.ws.close()
 
         if (client.sender) {
             clearInterval(client.sender)
