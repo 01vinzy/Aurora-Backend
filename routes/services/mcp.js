@@ -50,6 +50,7 @@ app.all(`/api/game/v2/profile/:accountId/client/QueryProfile`, checkToken, async
         case "collection_book_schematics0":
         case "collection_book_people0":
         case "metadata":
+        case "collections":
         case "theater0":
         case "outpost0":
         case "metadata":

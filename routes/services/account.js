@@ -141,6 +141,10 @@ app.all("/api/oauth/token", async (req, res) => {
   
 // token killing
 
+app.delete("/account/api/oauth/sessions/kill", (req, res) => {
+    res.status(204).end()
+})
+
 app.all("/api/oauth/sessions/kill/:accessToken", checkToken, (req, res) => {
     if (req.method != "DELETE") return res.status(405).json(errors.method())
 

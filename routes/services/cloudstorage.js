@@ -45,6 +45,10 @@ app.get("/api/cloudstorage/system", checkClientToken, (req, res) => {
     res.json(files)
 })
 
+app.get("/api/cloudstorage/system/config", (req, res) => {
+    res.json({})
+})
+
 app.get("/api/cloudstorage/system/:filename", checkClientToken, (req, res) => {
     const reversed = {}
     Object.keys(uniqueFilenames).forEach(x => reversed[uniqueFilenames[x]] = x)

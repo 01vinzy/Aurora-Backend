@@ -62,6 +62,7 @@ app.use("/content", require(`${__dirname}/routes/services/content`))
 app.use("/account", require(`${__dirname}/routes/services/account`))
 app.use("/friends", require(`${__dirname}/routes/services/friends`))
 app.use("/party", require(`${__dirname}/routes/services/party`))
+app.use(require(`${__dirname}/routes/services/misc`))
 
 global.launcherversion = fs.readFileSync(`${__dirname}/public/files/version`).toString()
 global.serverversion = "1.5"

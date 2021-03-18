@@ -15,6 +15,11 @@ app.all("/api/v2/versioncheck/Windows", (req, res) => {
     res.json({type: "NO_UPDATE"})
 })
 
+app.all("/api/receipts/v1/account/:accountId/receipts", checkToken, (req, res) => {
+    if(req.method != "GET") return res.status(405).json(errors.method("fortnite", "prod-live"))
+    res.json({})
+})
+
 app.all("/api/game/v2/tryPlayOnPlatform/account/:accountId", checkToken, (req, res) => {
     if(req.method != "POST") return res.status(405).json(errors.method("fortnite", "prod-live"))
     res.setHeader('Content-Type', 'text/plain')
